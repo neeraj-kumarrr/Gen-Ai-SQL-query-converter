@@ -4,6 +4,18 @@ from fastapi import FastAPI , Depends ,HTTPException
 from pydantic import BaseModel
 from typing import Dict
 import sqlite3
+import os
+
+port = int(os.environ.get("port",8000))
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0" , port = port)
+    
+
+
+
+
 
 
 def db_connection():
